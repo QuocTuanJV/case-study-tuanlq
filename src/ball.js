@@ -7,6 +7,7 @@ function Ball(game) {
         y: 1
 
     };
+    this.game = game;
     this.positionBall = {
         x: 10,
         y: 10,
@@ -14,10 +15,10 @@ function Ball(game) {
 
     this.sizeBall = 50;
 
-    this.drawBall = function (ctx) {
+    this.draw = function (ctx) {
         ctx.drawImage(this.imageBall, this.positionBall.x, this.positionBall.y, this.sizeBall, this.sizeBall);
     };
-    this.updatePositionBall = function (deltaTime) {
+    this.update = function (deltaTime) {
         this.positionBall.x += this.speedBall.x;
         this.positionBall.y += this.speedBall.y;
         if(this.positionBall.x + this.sizeBall > this.gameWidth || this.positionBall.x < 0){

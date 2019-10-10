@@ -10,11 +10,11 @@ function Paddle(game) {
         y: game.gameHeight - this.height - 10
     };
 
-   this.drawPaddle = function(ctx){
+   this.draw = function(ctx){
         ctx.fillStyle = '#00f';
         ctx.fillRect(this.position.x, this.position.y,this.width,this.height);
     };
-    this.updatePositionPaddle = function (deltaTime) {
+    this.update = function (deltaTime) {
         this.position.x += this.speed;
         if(this.position.x < 0) {
             this.position.x = 0
