@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cell{
+            border: solid 1px blue;
+            text-align: center;
+            font-size:20pt;
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="cell-0-0" class="cell" onclick="play(0,0)" style="position: absolute;width: 40px;height: 40px;left: 100px;top: 100px;line-height: 40px;"></div>
+<div id="cell-0-1" class="cell" onclick="play(0,1)" style="position: absolute;width: 40px;height: 40px;left: 140px;top: 100px;line-height: 40px;"></div>
+<script>
+let cellValue00 = document.getElementById('cell-0-0');
+let cellValue01 = document.getElementById('cell-0-1');
+cellValue00.innerHTML = "X";
+cellValue01.innerHTML = "O";
+
+</script>
+
+</body>
+</html>

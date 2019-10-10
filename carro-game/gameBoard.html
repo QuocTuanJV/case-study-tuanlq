@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cell{
+            border: solid 1px blue;
+            text-align: center;
+            font-size:20pt;
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<div id="gameBoard"></div>
+<body>
+<script>
+    let gameBoard = document.getElementById("gameBoard");
+    gameBoard.innerHTML += `<div id="cell-0-0" class="cell" onclick="play(this.id)" style="position: absolute;width: 40px;height: 40px;left: 100px;top: 100px;line-height: 40px;"></div>`
+    // function play(clicked_id) {
+    //     let element = document.getElementById("cell-0-0");
+    //     if(clicked_id =="cell-0-0"){
+    //         element.innerHTML ="X";
+    //     }
+    // }
+    function play() {
+        let element = document.getElementById("cell-0-0");
+
+            element.innerHTML ="X";
+
+    }
+
+</script>
+
+</body>
+</html>
