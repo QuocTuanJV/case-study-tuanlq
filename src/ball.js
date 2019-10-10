@@ -1,10 +1,10 @@
-function Ball(gameWidth, gameHeight) {
-    this.gameWidth = gameWidth;
-    this.gameHeight = gameHeight;
+function Ball(game) {
+    this.gameWidth = game.gameWidth;
+    this.gameHeight = game.gameHeight;
     this.imageBall = document.getElementById("img_ball");
     this.speedBall = {
-        x: 2,
-        y: 2
+        x: 1,
+        y: 1
 
     };
     this.positionBall = {
@@ -14,7 +14,7 @@ function Ball(gameWidth, gameHeight) {
 
     this.sizeBall = 50;
 
-    this.drawBall = function () {
+    this.drawBall = function (ctx) {
         ctx.drawImage(this.imageBall, this.positionBall.x, this.positionBall.y, this.sizeBall, this.sizeBall);
     };
     this.updatePositionBall = function (deltaTime) {
