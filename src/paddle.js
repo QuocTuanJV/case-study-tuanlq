@@ -15,7 +15,6 @@ function Paddle(gameWidth, gameHeight) {
         ctx.fillRect(this.position.x, this.position.y,this.width,this.height);
     };
     this.updatePositionPaddle = function (deltaTime) {
-        if(!deltaTime) return;
         this.position.x += this.speed;
         if(this.position.x < 0) {
             this.position.x = 0

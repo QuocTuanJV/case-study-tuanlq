@@ -10,18 +10,21 @@ new InputHandler(paddle);
 let lastTime = 0;
 
 //images
-let ball = new Ball();
+let ball = new Ball(GAME_WIDTH,GAME_HEIGHT);
 
 function gameLoop(timestamp) {
     let deltaTime = timestamp - lastTime;
     lastTime = timestamp;
+    //pen draw
     ctx.clearRect(0,0,GAME_WIDTH,GAME_HEIGHT);
+    //paddle
     paddle.updatePositionPaddle(deltaTime);
     paddle.drawPaddle(ctx);
     //ball
+    ball.updatePositionBall(deltaTime);
     ball.drawBall(ctx);
     requestAnimationFrame(gameLoop);
 }
 
-// gameLoop();
-requestAnimationFrame(gameLoop);
+gameLoop();
+// requestAnimationFrame(gameLoop);
