@@ -3,8 +3,8 @@ function Ball(game) {
     this.gameHeight = game.gameHeight;
     this.imageBall = document.getElementById("img_ball");
     this.speedBall = {
-        x: 10,
-        y: 10
+        x: 8,
+        y: 8
 
     };
     this.game = game;
@@ -13,7 +13,7 @@ function Ball(game) {
         y: 5,
     };
 
-    this.sizeBall = 50;
+    this.sizeBall = 30;
 
     this.draw = function (ctx) {
         ctx.drawImage(this.imageBall, this.positionBall.x, this.positionBall.y, this.sizeBall, this.sizeBall);

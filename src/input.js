@@ -1,6 +1,6 @@
 function InputHandler(paddle) {
     document.addEventListener('keydown', event => {
-
+// x = event.clientX
         switch (event.keyCode) {
             case 37:
                 paddle.moveLeft();
