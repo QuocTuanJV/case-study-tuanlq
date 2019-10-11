@@ -3,7 +3,7 @@ function Paddle(game) {
     this.gameHeight = game.gameHeight;
     this.width = 150;
     this.height =  30;
-    this.maxSpeed = 5;
+    this.maxSpeed = 10;
     this.speed = 0;
     this.positionPaddle = {
         x: game.gameWidth / 2 - this.width/2,

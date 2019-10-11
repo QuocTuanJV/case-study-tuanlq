@@ -19,7 +19,6 @@ function Ball(game) {
         ctx.drawImage(this.imageBall, this.positionBall.x, this.positionBall.y, this.sizeBall, this.sizeBall);
     };
     this.update = function (deltaTime) {
-        console.log("position paddle" + this.game.paddle.positionPaddle.x);
         this.positionBall.x += this.speedBall.x;
         this.positionBall.y += this.speedBall.y;
         if(this.positionBall.x + this.sizeBall > this.gameWidth || this.positionBall.x < 0){
