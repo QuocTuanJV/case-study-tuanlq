@@ -1,14 +1,14 @@
 function Brick(game, position) {
     this.image = document.getElementById("img_brick");
-    this.positionBrick = position;
+    this.position = position;
 
     this.game = game;
-    this.widthBrick = 52;
+    this.widthBrick = 80;
     this.heightBrick = 24;
     this.update =  function () {
 
     };
     this.draw = function (ctx) {
-        ctx.drawImage(this.image,this.positionBrick.x,this.positionBrick.y,this.widthBrick,this.heightBrick);
+        ctx.drawImage(this.image,this.position.x,this.position.y,this.widthBrick,this.heightBrick);
     };
 }

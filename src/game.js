@@ -8,11 +8,7 @@ function Game(gameWidth, gameHeight) {
         this.paddle = new Paddle(this);
 
         // let brick = new Brick(this,{x:20,y:20});
-        let brick = [];
-        for(let i = 0; i < 10; i++ ){
-            brick.push(new Brick(this,{x: i * 52, y: 24}));
-        }
-
+        let brick = buildingLevel(this,level1);
 
         this.gameObjects = [this.ball, this.paddle, ...brick];
 
