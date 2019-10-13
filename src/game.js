@@ -41,6 +41,12 @@ function Game(gameWidth, gameHeight) {
             obj.draw(ctx);
         });
 
+        if(this.gamestate == GAME_STATE.PAUSED){
+            ctx.rect(0,0, this.gameWidth, this.gameHeight);
+            ctx.fillStyle = "rgba(0,0,0,0.5)";
+            ctx.fill();
+        }
+
     };
 
     this.togglePause = function () {
