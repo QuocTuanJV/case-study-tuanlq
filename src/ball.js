@@ -4,13 +4,13 @@ function Ball(game) {
     this.imageBall = document.getElementById("img_ball");
     this.speedBall = {
         x: 5,
-        y: 5
+        y: -5
 
     };
     this.game = game;
     this.positionBall = {
         x: 5,
-        y: 5,
+        y: 400,
     };
 
     this.sizeBall = 30;
