@@ -5,9 +5,11 @@ function Brick(game, position) {
     this.game = game;
     this.width = 80;
     this.height = 24;
+    this.markedForDeletion = false;
     this.update =  function () {
         if(detectionCollision(this.game.ball,this)){
             this.game.ball.speedBall.y = - this.game.ball.speedBall.y;
+            this.markedForDeletion = true;
         }
     };
     this.draw = function (ctx) {
