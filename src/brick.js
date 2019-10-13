@@ -3,12 +3,14 @@ function Brick(game, position) {
     this.position = position;
 
     this.game = game;
-    this.widthBrick = 80;
-    this.heightBrick = 24;
+    this.width = 80;
+    this.height = 24;
     this.update =  function () {
-
+        if(detectionCollision(this.game.ball,this)){
+            this.game.ball.speedBall.y = - this.game.ball.speedBall.y;
+        }
     };
     this.draw = function (ctx) {
-        ctx.drawImage(this.image,this.position.x,this.position.y,this.widthBrick,this.heightBrick);
+        ctx.drawImage(this.image,this.position.x,this.position.y,this.width,this.height);
     };
 }

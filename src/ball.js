@@ -3,8 +3,8 @@ function Ball(game) {
     this.gameHeight = game.gameHeight;
     this.imageBall = document.getElementById("img_ball");
     this.speedBall = {
-        x: 8,
-        y: 8
+        x: 5,
+        y: 5
 
     };
     this.game = game;
