@@ -22,6 +22,7 @@ function Game(gameWidth, gameHeight) {
         this.gameObjects.forEach(function (obj) {
             obj.update(deltaTime);
         });
+        this.gameObjects = this.gameObjects.filter(object => !object.markedForDeletion);
 
     };
     this.drawGame = function (ctx) {
