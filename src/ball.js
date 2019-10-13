@@ -28,13 +28,9 @@ function Ball(game) {
             this.speedBall.y = - this.speedBall.y;
         }
 
-        let bottomOfBall = this.positionBall.y + this.sizeBall;
-        let topOfPaddle = this.game.paddle.positionPaddle.y;
-        let leftSideOfPaddle = this.game.paddle.positionPaddle.x;
-        let rightSideOfPaddle = this.game.paddle.positionPaddle.x + this.game.paddle.width;
-        if((bottomOfBall >= topOfPaddle) && (this.positionBall.x >= leftSideOfPaddle) && (this.positionBall.x <= rightSideOfPaddle)){
+        if(detectionCollision(this,this.game.paddle)){
             this.speedBall.y = -this.speedBall.y;
-            this.positionBall.y = this.game.paddle.positionPaddle.y - this.sizeBall;
+            this.positionBall.y = this.game.paddle.position.y - this.sizeBall;
         }
     }
 }
