@@ -1,9 +1,16 @@
+const GAME_STATE = {
+    PAUSED: 0,
+    RUNNING:1,
+    MENU: 2,
+    GAME_OVER: 3
+}
 function Game(gameWidth, gameHeight) {
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
 
 
     this.initGame = function () {
+        this.gamestate = GAME_STATE.RUNNING;
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);
 
