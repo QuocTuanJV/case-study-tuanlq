@@ -22,6 +22,7 @@ function Game(gameWidth, gameHeight) {
         new InputHandler(this.paddle, this);
     };
     this.updateGame = function (deltaTime) {
+        if(this.gamestate == GAME_STATE.PAUSED) return;
         // this.paddle.update(deltaTime);
         // this.ball.update(deltaTime);
 
@@ -43,7 +44,11 @@ function Game(gameWidth, gameHeight) {
     };
 
     this.togglePause = function () {
-
+        if(this.gamestate == GAME_STATE.PAUSED){
+            this.gamestate = GAME_STATE.RUNNING;
+        } else {
+            this.gamestate = GAME_STATE.PAUSED;
+        }
     }
 
 

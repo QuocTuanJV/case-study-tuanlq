@@ -8,12 +8,9 @@ function InputHandler(paddle, game) {
             case 39:
                 paddle.moveRight();
                 break;
-            case 27:
+            case 32:
                 game.togglePause();
                 break;
-
-
-
         }
     });
 
