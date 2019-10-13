@@ -12,7 +12,7 @@ function Game(gameWidth, gameHeight) {
 
         this.gameObjects = [this.ball, this.paddle, ...brick];
 
-        new InputHandler(this.paddle);
+        new InputHandler(this.paddle, this);
     };
     this.updateGame = function (deltaTime) {
         // this.paddle.update(deltaTime);
@@ -34,4 +34,10 @@ function Game(gameWidth, gameHeight) {
         });
 
     };
+
+    this.togglePause = function () {
+
+    }
+
+
 }

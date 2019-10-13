@@ -1,4 +1,4 @@
-function InputHandler(paddle) {
+function InputHandler(paddle, game) {
     document.addEventListener('keydown', event => {
 // x = event.clientX
         switch (event.keyCode) {
@@ -8,6 +8,11 @@ function InputHandler(paddle) {
             case 39:
                 paddle.moveRight();
                 break;
+            case 27:
+                game.togglePause();
+                break;
+
+
 
         }
     });
