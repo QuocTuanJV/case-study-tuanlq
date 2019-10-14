@@ -12,7 +12,7 @@ function Game(gameWidth, gameHeight) {
     this.paddle = new Paddle(this);
     this.gameObjects = [];
     new InputHandler(this.paddle, this);
-    this.lives = 1;
+    this.lives = 3;
 
     this.startGame = function () {
         if(this.gamestate !== GAME_STATE.MENU ) return;

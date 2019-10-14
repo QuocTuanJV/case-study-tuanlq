@@ -42,6 +42,7 @@ function Ball(game) {
         }
         if(this.positionBall.y + this.sizeBall > this.gameHeight){
             this.game.lives--;
+            this.resetGame();
         }
 
         if(detectionCollision(this,this.game.paddle)){
