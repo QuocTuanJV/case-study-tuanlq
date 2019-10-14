@@ -11,6 +11,9 @@ function InputHandler(paddle, game) {
             case 27:
                 game.togglePause();
                 break;
+            case 32:
+                game.startGame();
+                break;
         }
     });
 

@@ -7,18 +7,18 @@ const GAME_STATE = {
 function Game(gameWidth, gameHeight) {
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
-
+    this.gamestate = GAME_STATE.MENU;
+    this.ball = new Ball(this);
+    this.paddle = new Paddle(this);
+    new InputHandler(this.paddle, this);
 
     this.startGame = function () {
-        this.gamestate = GAME_STATE.RUNNING;
-        this.ball = new Ball(this);
-        this.paddle = new Paddle(this);
 
         let brick = buildingLevel(this,level1);
 
         this.gameObjects = [this.ball, this.paddle, ...brick];
 
-        new InputHandler(this.paddle, this);
+
     };
     this.updateGame = function (deltaTime) {
         if(this.gamestate == GAME_STATE.PAUSED || this.gamestate == GAME_STATE.MENU) return;
