@@ -37,7 +37,7 @@ function Game(gameWidth, gameHeight) {
     };
     this.drawGame = function (ctx) {
         // this.gameObjects.forEach(object => object.draw(ctx));
-        this.gameObjects.forEach(function (obj) {
+        [...this.gameObjects,...this.bricks].forEach(function (obj) {
             obj.draw(ctx);
         });
 
