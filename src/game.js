@@ -7,7 +7,7 @@ const GAME_STATE = {
 function Game(gameWidth, gameHeight) {
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
-    this.gamestate = GAME_STATE.GAME_OVER;
+    this.gamestate = GAME_STATE.MENU;
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
     this.gameObjects = [];

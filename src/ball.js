@@ -14,6 +14,19 @@ function Ball(game) {
     };
 
     this.sizeBall = 30;
+    this.resetGame = function () {
+        this.speedBall = {
+            x: 5,
+            y: -5
+
+        };
+
+        this.positionBall = {
+            x: 5,
+            y: 400,
+        };
+
+    };
 
     this.draw = function (ctx) {
         ctx.drawImage(this.imageBall, this.positionBall.x, this.positionBall.y, this.sizeBall, this.sizeBall);
@@ -24,8 +37,11 @@ function Ball(game) {
         if(this.positionBall.x + this.sizeBall > this.gameWidth || this.positionBall.x < 0){
             this.speedBall.x = - this.speedBall.x;
         }
-        if(this.positionBall.y + this.sizeBall > this.gameHeight || this.positionBall.y < 0){
+        if(this.positionBall.y < 0){
             this.speedBall.y = - this.speedBall.y;
+        }
+        if(this.positionBall.y + this.sizeBall > this.gameHeight){
+            this.game.lives--;
         }
 
         if(detectionCollision(this,this.game.paddle)){
