@@ -9,7 +9,7 @@ function Game(gameWidth, gameHeight) {
     this.gameHeight = gameHeight;
 
 
-    this.initGame = function () {
+    this.startGame = function () {
         this.gamestate = GAME_STATE.RUNNING;
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);

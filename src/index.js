@@ -3,7 +3,7 @@ const GAME_HEIGHT = 600;
 let canvas = document.getElementById("gameScreen");
 let ctx = canvas.getContext('2d');
 let game = new Game(GAME_WIDTH, GAME_HEIGHT);
-game.initGame();
+game.startGame();
 let lastTime = 0;
 
 //images
