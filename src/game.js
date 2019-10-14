@@ -17,6 +17,7 @@ function Game(gameWidth, gameHeight) {
         let brick = buildingLevel(this,level1);
 
         this.gameObjects = [this.ball, this.paddle, ...brick];
+        this.gamestate = GAME_STATE.RUNNING;
 
 
     };
