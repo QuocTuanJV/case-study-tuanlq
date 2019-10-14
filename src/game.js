@@ -14,10 +14,12 @@ function Game(gameWidth, gameHeight) {
     this.bricks = [];
     new InputHandler(this.paddle, this);
     this.lives = 3;
+    this.levels = [level1,level2];
+    this.currentLevel = 0;
 
     this.startGame = function () {
         if(this.gamestate !== GAME_STATE.MENU ) return;
-        this.bricks = buildingLevel(this,level1);
+        this.bricks = buildingLevel(this,this.levels[this.currentLevel]);
 
         this.gameObjects = [this.ball, this.paddle];
         this.gamestate = GAME_STATE.RUNNING;
@@ -29,10 +31,15 @@ function Game(gameWidth, gameHeight) {
 
         if (this.gamestate == GAME_STATE.PAUSED || this.gamestate == GAME_STATE.MENU || this.gamestate == GAME_STATE.GAME_OVER) return;
         // this.gameObjects.forEach(object => object.update(deltaTime));
+        if(this.bricks.length === 0){
+            this.currentLevel++;
+            this.startGame();
+        }
+
         [...this.gameObjects,...this.bricks].forEach(function (obj) {
             obj.update(deltaTime);
         });
-        this.bricks = this.bricks.filter(object => !object.markedForDeletion);
+        this.bricks = this.bricks.filter(brick => !brick.markedForDeletion);
 
     };
     this.drawGame = function (ctx) {
