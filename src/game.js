@@ -11,14 +11,15 @@ function Game(gameWidth, gameHeight) {
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
     this.gameObjects = [];
+    this.bricks = [];
     new InputHandler(this.paddle, this);
     this.lives = 3;
 
     this.startGame = function () {
         if(this.gamestate !== GAME_STATE.MENU ) return;
-        let brick = buildingLevel(this,level1);
+        this.bricks = buildingLevel(this,level1);
 
-        this.gameObjects = [this.ball, this.paddle, ...brick];
+        this.gameObjects = [this.ball, this.paddle];
         this.gamestate = GAME_STATE.RUNNING;
 
 
@@ -28,7 +29,7 @@ function Game(gameWidth, gameHeight) {
 
         if (this.gamestate == GAME_STATE.PAUSED || this.gamestate == GAME_STATE.MENU || this.gamestate == GAME_STATE.GAME_OVER) return;
         // this.gameObjects.forEach(object => object.update(deltaTime));
-        this.gameObjects.forEach(function (obj) {
+        [...this.gameObjects,...this.bricks].forEach(function (obj) {
             obj.update(deltaTime);
         });
         this.gameObjects = this.gameObjects.filter(object => !object.markedForDeletion);
