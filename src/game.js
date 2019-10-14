@@ -39,6 +39,13 @@ function Game(gameWidth, gameHeight) {
             ctx.rect(0,0, this.gameWidth, this.gameHeight);
             ctx.fillStyle = "rgba(0,0,0,0.5)";
             ctx.fill();
+
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.fillText("PAUSED", this.gameWidth/ 2, this.gameHeight/ 2);
+
+
         }
 
     };
