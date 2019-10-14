@@ -2,7 +2,8 @@ const GAME_STATE = {
     PAUSED: 0,
     RUNNING:1,
     MENU: 2,
-    GAME_OVER: 3
+    GAME_OVER: 3,
+    NEW_LEVEL: 4
 }
 function Game(gameWidth, gameHeight) {
     this.gameWidth = gameWidth;
@@ -18,9 +19,9 @@ function Game(gameWidth, gameHeight) {
     this.currentLevel = 0;
 
     this.startGame = function () {
-        if(this.gamestate !== GAME_STATE.MENU ) return;
+        if(this.gamestate !== GAME_STATE.MENU && this.gamestate !=GAME_STATE.NEW_LEVEL) return;
         this.bricks = buildingLevel(this,this.levels[this.currentLevel]);
-
+        this.ball.resetGame();
         this.gameObjects = [this.ball, this.paddle];
         this.gamestate = GAME_STATE.RUNNING;
 
@@ -33,6 +34,7 @@ function Game(gameWidth, gameHeight) {
         // this.gameObjects.forEach(object => object.update(deltaTime));
         if(this.bricks.length === 0){
             this.currentLevel++;
+            this.gamestate = GAME_STATE.NEW_LEVEL;
             this.startGame();
         }
 
