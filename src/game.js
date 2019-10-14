@@ -21,7 +21,7 @@ function Game(gameWidth, gameHeight) {
         new InputHandler(this.paddle, this);
     };
     this.updateGame = function (deltaTime) {
-        if(this.gamestate == GAME_STATE.PAUSED) return;
+        if(this.gamestate == GAME_STATE.PAUSED || this.gamestate == GAME_STATE.MENU) return;
         // this.gameObjects.forEach(object => object.update(deltaTime));
         this.gameObjects.forEach(function (obj) {
             obj.update(deltaTime);
@@ -44,8 +44,16 @@ function Game(gameWidth, gameHeight) {
             ctx.fillStyle = "white";
             ctx.textAlign = "center";
             ctx.fillText("PAUSED", this.gameWidth/ 2, this.gameHeight/ 2);
+        }
+        if(this.gamestate == GAME_STATE.MENU){
+            ctx.rect(0,0, this.gameWidth, this.gameHeight);
+            ctx.fillStyle = "rgba(0,0,0,1)";
+            ctx.fill();
 
-
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.fillText("press SPACEBAR to Start", this.gameWidth/ 2, this.gameHeight/ 2);
         }
 
     };
