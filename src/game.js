@@ -10,6 +10,7 @@ function Game(gameWidth, gameHeight) {
     this.gamestate = GAME_STATE.MENU;
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
+    this.gameObjects = [];
     new InputHandler(this.paddle, this);
 
     this.startGame = function () {
