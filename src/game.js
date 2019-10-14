@@ -14,7 +14,6 @@ function Game(gameWidth, gameHeight) {
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);
 
-        // let brick = new Brick(this,{x:20,y:20});
         let brick = buildingLevel(this,level1);
 
         this.gameObjects = [this.ball, this.paddle, ...brick];
@@ -23,9 +22,6 @@ function Game(gameWidth, gameHeight) {
     };
     this.updateGame = function (deltaTime) {
         if(this.gamestate == GAME_STATE.PAUSED) return;
-        // this.paddle.update(deltaTime);
-        // this.ball.update(deltaTime);
-
         // this.gameObjects.forEach(object => object.update(deltaTime));
         this.gameObjects.forEach(function (obj) {
             obj.update(deltaTime);
@@ -34,8 +30,6 @@ function Game(gameWidth, gameHeight) {
 
     };
     this.drawGame = function (ctx) {
-        // this.paddle.draw(ctx);
-        // this.ball.draw(ctx);
         // this.gameObjects.forEach(object => object.draw(ctx));
         this.gameObjects.forEach(function (obj) {
             obj.draw(ctx);
