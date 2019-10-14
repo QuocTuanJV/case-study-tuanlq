@@ -14,7 +14,7 @@ function Game(gameWidth, gameHeight) {
     new InputHandler(this.paddle, this);
 
     this.startGame = function () {
-
+        if(this.gamestate !== GAME_STATE.MENU ) return;
         let brick = buildingLevel(this,level1);
 
         this.gameObjects = [this.ball, this.paddle, ...brick];
