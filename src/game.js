@@ -12,10 +12,11 @@ function Game(gameWidth, gameHeight) {
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
     this.mscore = new Score(this);
+    this.mHealth = new Health(this);
     this.gameObjects = [];
     this.bricks = [];
     new InputHandler(this.paddle, this);
-    this.lives = 3;
+    // this.lives = 3;
     this.levels = [level1,level2];
     this.currentLevel = 0;
 
@@ -24,13 +25,13 @@ function Game(gameWidth, gameHeight) {
         if(this.gamestate !== GAME_STATE.MENU && this.gamestate !=GAME_STATE.NEW_LEVEL) return;
         this.bricks = buildingLevel(this,this.levels[this.currentLevel]);
         this.ball.resetGame();
-        this.gameObjects = [this.ball, this.paddle, this.mscore];
+        this.gameObjects = [this.ball, this.paddle, this.mscore, this.mHealth];
         this.gamestate = GAME_STATE.RUNNING;
 
 
     };
     this.updateGame = function (deltaTime) {
-        if(this.lives === 0 ) this.gamestate = GAME_STATE.GAME_OVER;
+        if(this.mHealth.health === 0 ) this.gamestate = GAME_STATE.GAME_OVER;
 
         if (this.gamestate == GAME_STATE.PAUSED || this.gamestate == GAME_STATE.MENU || this.gamestate == GAME_STATE.GAME_OVER) return;
         // this.gameObjects.forEach(object => object.update(deltaTime));
@@ -40,7 +41,7 @@ function Game(gameWidth, gameHeight) {
             this.startGame();
         }
 
-        [...this.gameObjects,...this.bricks,this.mscore].forEach(function (obj) {
+        [...this.gameObjects,...this.bricks,this.mscore,this.mHealth].forEach(function (obj) {
             obj.update(deltaTime);
         });
         this.bricks = this.bricks.filter(brick => !brick.markedForDeletion);
@@ -48,7 +49,7 @@ function Game(gameWidth, gameHeight) {
     };
     this.drawGame = function (ctx) {
         // this.gameObjects.forEach(object => object.draw(ctx));
-        [...this.gameObjects,...this.bricks,this.mscore].forEach(function (obj) {
+        [...this.gameObjects,...this.bricks,this.mscore,this.mHealth].forEach(function (obj) {
             obj.draw(ctx);
         });
 

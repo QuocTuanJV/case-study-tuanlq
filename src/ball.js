@@ -41,7 +41,7 @@ function Ball(game) {
             this.speedBall.y = - this.speedBall.y;
         }
         if(this.positionBall.y + this.sizeBall > this.gameHeight){
-            this.game.lives--;
+            this.game.mHealth.health--;
             this.resetGame();
         }
 
