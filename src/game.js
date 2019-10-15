@@ -11,6 +11,7 @@ function Game(gameWidth, gameHeight) {
     this.gamestate = GAME_STATE.MENU;
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
+    this.mscore = new Score(this);
     this.gameObjects = [];
     this.bricks = [];
     new InputHandler(this.paddle, this);
@@ -18,11 +19,12 @@ function Game(gameWidth, gameHeight) {
     this.levels = [level1,level2];
     this.currentLevel = 0;
 
+
     this.startGame = function () {
         if(this.gamestate !== GAME_STATE.MENU && this.gamestate !=GAME_STATE.NEW_LEVEL) return;
         this.bricks = buildingLevel(this,this.levels[this.currentLevel]);
         this.ball.resetGame();
-        this.gameObjects = [this.ball, this.paddle];
+        this.gameObjects = [this.ball, this.paddle, this.mscore];
         this.gamestate = GAME_STATE.RUNNING;
 
 
@@ -38,7 +40,7 @@ function Game(gameWidth, gameHeight) {
             this.startGame();
         }
 
-        [...this.gameObjects,...this.bricks].forEach(function (obj) {
+        [...this.gameObjects,...this.bricks,this.mscore].forEach(function (obj) {
             obj.update(deltaTime);
         });
         this.bricks = this.bricks.filter(brick => !brick.markedForDeletion);
@@ -46,7 +48,7 @@ function Game(gameWidth, gameHeight) {
     };
     this.drawGame = function (ctx) {
         // this.gameObjects.forEach(object => object.draw(ctx));
-        [...this.gameObjects,...this.bricks].forEach(function (obj) {
+        [...this.gameObjects,...this.bricks,this.mscore].forEach(function (obj) {
             obj.draw(ctx);
         });
 

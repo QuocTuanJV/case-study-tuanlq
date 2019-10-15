@@ -10,6 +10,7 @@ function Brick(game, position) {
         if(detectionCollision(this.game.ball,this)){
             this.game.ball.speedBall.y = - this.game.ball.speedBall.y;
             this.markedForDeletion = true;
+            this.game.mscore.score++;
         }
     };
     this.draw = function (ctx) {
