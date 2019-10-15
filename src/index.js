@@ -6,9 +6,6 @@ let game = new Game(GAME_WIDTH, GAME_HEIGHT);
 
 let lastTime = 0;
 
-//images
-
-
 function gameLoop(timestamp) {
     let deltaTime = timestamp - lastTime;
     lastTime = timestamp;
@@ -18,6 +15,4 @@ function gameLoop(timestamp) {
     game.drawGame(ctx);
     requestAnimationFrame(gameLoop);
 }
-
 gameLoop();
-// requestAnimationFrame(gameLoop);

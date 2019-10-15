@@ -16,10 +16,8 @@ function Game(gameWidth, gameHeight) {
     this.gameObjects = [];
     this.bricks = [];
     new InputHandler(this.paddle, this);
-    // this.lives = 3;
     this.levels = [level1,level2];
     this.currentLevel = 0;
-
 
     this.startGame = function () {
         if(this.gamestate !== GAME_STATE.MENU && this.gamestate !=GAME_STATE.NEW_LEVEL) return;
